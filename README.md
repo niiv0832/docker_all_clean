@@ -2,7 +2,7 @@
 # 🐳 Docker Interactive Cleanup Script
 
 [Русская версия](#русская-версия) | [English Version](#english-version)
-
+```
 ---
 
 ## Русская версия
