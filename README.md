@@ -1,3 +1,19 @@
+Отличная инициатива! Выложить такой полезный инструмент на GitHub — это правильный шаг.
+
+Вот готовые материалы для вашего репозитория.
+
+### Короткое описание репозитория (для поля "About")
+
+**RU:** 🐳 Интерактивный Bash-скрипт для удобного управления и безопасной очистки Docker (контейнеры, образы, сети, тома, кэш) с защитой от случайного удаления.
+**EN:** 🐳 An interactive Bash script for convenient management and safe Docker cleanup (containers, images, networks, volumes, cache) with accidental deletion protection.
+
+---
+
+### Файл `README.md`
+
+Просто скопируйте приведенный ниже текст и вставьте его в ваш файл `README.md`. В нем я объединил и русскую, и английскую версии, что является стандартом для хороших международных репозиториев.
+
+```markdown
 # 🐳 Docker Interactive Cleanup Script
 
 [Русская версия](#русская-версия) | [English Version](#english-version)
@@ -21,3 +37,71 @@
    ```bash
    git clone [https://github.com/ВАШ_ЛОГИН/ВАШ_РЕПОЗИТОРИЙ.git](https://github.com/ВАШ_ЛОГИН/ВАШ_РЕПОЗИТОРИЙ.git)
    cd ВАШ_РЕПОЗИТОРИЙ
+
+```
+
+2. Выдайте скрипту права на выполнение:
+```bash
+chmod +x docker_all_clean.sh
+
+```
+
+
+3. Запустите скрипт:
+```bash
+./docker_all_clean.sh
+
+```
+
+
+*(Или используйте команду `bash docker_all_clean.sh`)*
+
+---
+
+## English Version
+
+This repository provides a convenient and interactive bash script for managing and safely cleaning up Docker resources on your local machine or server.
+
+### ✨ Features
+
+* **Interactive Menu:** User-friendly interface with colorized output.
+* **Container Management:** Displays a table of all containers and allows stopping or removing them by selecting their sequence number.
+* **Targeted Cleanup:** Choose what to clean (only stopped containers, dangling images/volumes, or Builder/Buildx cache).
+* **Safety First:** Built-in safeguards against accidental clicks. Critical operations (like a complete system wipe) require typing a confirmation word.
+* **Compatibility:** The script checks for the correct shell environment (`bash`) and works smoothly on both macOS and Linux.
+
+### 🚀 Usage
+
+1. Clone the repository or download the script file:
+```bash
+git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git)
+cd YOUR_REPOSITORY
+
+```
+
+
+2. Make the script executable:
+```bash
+chmod +x docker_all_clean_en.sh
+
+```
+
+
+3. Run the script:
+```bash
+./docker_all_clean_en.sh
+
+```
+
+
+*(Alternatively, run it with `bash docker_all_clean_en.sh`)*
+
+---
+
+### ⚠️ Disclaimer
+
+**Use with caution.** The "Full Wipe" option (Option 5) will forcefully stop and delete ALL containers, networks, images, and volumes. Make sure you do not have any unsaved critical data in your local Docker environment before running it.
+
+```
+
+```
