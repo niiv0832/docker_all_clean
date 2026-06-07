@@ -14,7 +14,7 @@ We pledge to make participation in our project a harassment-free experience for 
 * Gracefully accept constructive criticism.
 
 **Enforcement:**
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at **[YOUR_EMAIL@EXAMPLE.COM]**.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at **[v13m12p24@yahoo.com]**.
 
 ---
 
@@ -28,4 +28,4 @@ Instances of abusive, harassing, or otherwise unacceptable behavior may be repor
 * Адекватно воспринимайте конструктивную критику.
 
 **Жалобы и нарушения:**
-О случаях оскорбительного или иного неприемлемого поведения можно сообщить команде проекта по адресу **[YOUR_EMAIL@EXAMPLE.COM]**.
+О случаях оскорбительного или иного неприемлемого поведения можно сообщить команде проекта по адресу **[v13m12p24@yahoo.com]**.
