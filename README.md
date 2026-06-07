@@ -1,6 +1,7 @@
-```markdown
+
 # 🐳 Docker Interactive Cleanup Script
 
+```markdown
 [Русская версия](#русская-версия) | [English Version](#english-version)
 ```
 ---
