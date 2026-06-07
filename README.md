@@ -1,4 +1,4 @@
-# 🐳 Docker Interactive Cleanup Script
+# Docker Interactive Cleanup Script
 
 [Русская версия](#русская-версия) | [English Version](#english-version)
 
@@ -6,76 +6,158 @@
 
 ## Русская версия
 
-Этот репозиторий содержит удобный интерактивный bash-скрипт для управления и безопасной очистки ресурсов Docker на вашем локальном компьютере или сервере.
+Интерактивный Bash-скрипт для просмотра и безопасной очистки локальных Docker-ресурсов. Скрипт проверяет доступность Docker, показывает текущий Docker context, поддерживает предпросмотр через `--dry-run` и требует явного подтверждения перед опасными операциями.
 
-### ✨ Возможности
+### Возможности
 
-* **Интерактивное меню:** Понятный интерфейс с цветовой подсветкой.
-* **Управление контейнерами:** Вывод списка всех контейнеров в виде таблицы и возможность их остановки/удаления по порядковому номеру.
-* **Умная очистка:** Выбор точечной очистки (только остановленные контейнеры, неиспользуемые образы/тома или кэш сборщика Builder/Buildx).
-* **Безопасность:** Встроенная защита от случайных действий ("защита от дурака") — для критических операций (например, полное удаление) требуется ручной ввод подтверждающего слова.
-* **Универсальность:** Скрипт проверяет оболочку (требуется `bash`) и корректно работает на macOS и Linux.
+* Один билингвальный скрипт: `docker_all_clean.sh`.
+* Выбор языка при старте или через `--lang ru|en`.
+* Раздельная очистка контейнеров, образов, сетей, volumes и builder cache.
+* Предпросмотр через `--dry-run` / `--preview` без удаления данных.
+* Отключение цветов через `--no-color`, `NO_COLOR=1` или автоматически при выводе не в терминал.
+* Проверки качества через `scripts/check.sh` и GitHub Actions.
 
-### 🚀 Использование
+### Меню
 
-1. Склонируйте репозиторий или скачайте файл скрипта:
-   ```bash
-   git clone https://github.com/niiv0832/docker_all_clean.git
-   cd docker_all_clean
-   ```
+```text
+1) Показать ВСЕ контейнеры и управлять одним контейнером
+2) Очистить остановленные контейнеры
+3) Очистить неиспользуемые образы
+4) Очистить неиспользуемые сети
+5) Очистить неиспользуемые volumes
+6) Очистить кэш сборщика
+7) Полностью очистить Docker
+0) Выход из скрипта
+```
 
-2. Выдайте скрипту права на выполнение:
-   ```bash
-   chmod +x docker_all_clean.sh
-   ```
+### Использование
 
-3. Запустите скрипт:
-   ```bash
-   ./docker_all_clean.sh
-   ```
+```bash
+git clone https://github.com/niiv0832/docker_all_clean.git
+cd docker_all_clean
+chmod +x docker_all_clean.sh
+./docker_all_clean.sh
+```
 
-*(Или используйте команду `bash docker_all_clean.sh`)*
+Запуск с явным языком:
 
-### ⚠️ Отказ от ответственности
+```bash
+./docker_all_clean.sh --lang ru
+./docker_all_clean.sh --lang en
+```
 
-**Используйте с осторожностью.** Опция "Full Wipe" (Пункт 5) принудительно остановит и удалит ВСЕ контейнеры, сети, образы и тома. Убедитесь, что в локальной Docker-среде нет важных несохранённых данных перед запуском.
+Предпросмотр без удаления:
+
+```bash
+./docker_all_clean.sh --lang ru --dry-run
+```
+
+Отключение цветов:
+
+```bash
+./docker_all_clean.sh --no-color
+NO_COLOR=1 ./docker_all_clean.sh
+```
+
+Справка:
+
+```bash
+./docker_all_clean.sh --help
+```
+
+### Проверки
+
+```bash
+./scripts/check.sh
+```
+
+Команда запускает:
+
+```bash
+bash -n docker_all_clean.sh
+shellcheck docker_all_clean.sh
+```
+
+### Отказ от ответственности
+
+Используйте с осторожностью. Full wipe принудительно останавливает и удаляет контейнеры, образы, сети, volumes и builder cache. Перед удалением volumes и full wipe скрипт показывает предпросмотр и требует явного подтверждения.
 
 ---
 
 ## English Version
 
-This repository provides a convenient and interactive bash script for managing and safely cleaning up Docker resources on your local machine or server.
+An interactive Bash script for inspecting and safely cleaning local Docker resources. The script checks Docker availability, prints the current Docker context, supports preview mode with `--dry-run`, and requires explicit confirmation before dangerous operations.
 
-### ✨ Features
+### Features
 
-* **Interactive Menu:** User-friendly interface with colorized output.
-* **Container Management:** Displays a table of all containers and allows stopping or removing them by selecting their sequence number.
-* **Targeted Cleanup:** Choose what to clean (only stopped containers, dangling images/volumes, or Builder/Buildx cache).
-* **Safety First:** Built-in safeguards against accidental clicks. Critical operations (like a complete system wipe) require typing a confirmation word.
-* **Compatibility:** The script checks for the correct shell environment (`bash`) and works smoothly on both macOS and Linux.
+* One bilingual script: `docker_all_clean.sh`.
+* Language selection at startup or via `--lang ru|en`.
+* Separate cleanup actions for containers, images, networks, volumes, and builder cache.
+* Preview mode with `--dry-run` / `--preview` without deleting data.
+* Color control via `--no-color`, `NO_COLOR=1`, or automatic non-TTY detection.
+* Quality checks via `scripts/check.sh` and GitHub Actions.
 
-### 🚀 Usage
+### Menu
 
-1. Clone the repository or download the script file:
-   ```bash
-   git clone https://github.com/niiv0832/docker_all_clean.git
-   cd docker_all_clean
-   ```
+```text
+1) Show ALL containers and manage one container
+2) Clean stopped containers
+3) Clean unused images
+4) Clean unused networks
+5) Clean unused volumes
+6) Clean builder cache
+7) Full Docker wipe
+0) Exit script
+```
 
-2. Make the script executable:
-   ```bash
-   chmod +x docker_all_clean_en.sh
-   ```
+### Usage
 
-3. Run the script:
-   ```bash
-   ./docker_all_clean_en.sh
-   ```
+```bash
+git clone https://github.com/niiv0832/docker_all_clean.git
+cd docker_all_clean
+chmod +x docker_all_clean.sh
+./docker_all_clean.sh
+```
 
-*(Alternatively, run it with `bash docker_all_clean_en.sh`)*
+Run with an explicit language:
 
----
+```bash
+./docker_all_clean.sh --lang en
+./docker_all_clean.sh --lang ru
+```
 
-### ⚠️ Disclaimer
+Preview without deleting anything:
 
-**Use with caution.** The "Full Wipe" option (Option 5) will forcefully stop and delete ALL containers, networks, images, and volumes. Make sure you do not have any unsaved critical data in your local Docker environment before running it.
+```bash
+./docker_all_clean.sh --lang en --dry-run
+```
+
+Disable colors:
+
+```bash
+./docker_all_clean.sh --no-color
+NO_COLOR=1 ./docker_all_clean.sh
+```
+
+Help:
+
+```bash
+./docker_all_clean.sh --help
+```
+
+### Checks
+
+```bash
+./scripts/check.sh
+```
+
+The command runs:
+
+```bash
+bash -n docker_all_clean.sh
+shellcheck docker_all_clean.sh
+```
+
+### Disclaimer
+
+Use with caution. Full wipe forcefully stops and removes containers, images, networks, volumes, and builder cache. Before removing volumes or running full wipe, the script shows a preview and requires explicit confirmation.
