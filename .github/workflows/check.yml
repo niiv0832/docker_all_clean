@@ -15,4 +15,4 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y shellcheck
 
       - name: Run checks
-        run: ./scripts/check.sh
+        run: bash scripts/check.sh
